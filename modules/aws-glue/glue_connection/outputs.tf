@@ -1,19 +1,14 @@
-output "name" {
-  value = "${join(",", aws_glue_connection.glue_connection_vpc.*.name)}"
-}
-
-output "type" {
-  value = "${join(",", aws_glue_connection.glue_connection_vpc.*.type)}"
+output "connection_name" {
+  description = "glue connection name"
+  value = aws_glue_connection.glue_connection_vpc.*.name
 }
 
 output "vpc_settings" {
-  value = "${join(",", aws_glue_connection.glue_connection_vpc.*.physical_connection_requirements)}"
+  description = "glue connection physical requirements"
+  value = aws_glue_connection.glue_connection_vpc.*.physical_connection_requirements
 }
 
-output "catalog" {
-  value = "${join(",", aws_glue_connection.glue_connection_vpc.*.catalog_id)}"
+output "catalog_id" {
+  description = "catalog id"
+  value = aws_glue_connection.glue_connection_vpc.*.catalog_id
 }
-
-# output "connection_arn" {
-#   value = "${join(",", aws_glue_connection.glue_connection_vpc.*.arn)}"
-# }

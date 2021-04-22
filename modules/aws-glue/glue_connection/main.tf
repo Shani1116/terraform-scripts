@@ -13,7 +13,10 @@ resource "aws_glue_connection" "glue_connection_vpc" {
     subnet_id              = var.subnet_id
   }
 
-  catalog_id      = "${var.catalog_id}"
-  connection_type = "${var.type}"
-  description     = "${var.description}"
+  connection_type = var.type
+  description     = var.description
+
+  match_criteria = var.match_criteria
+
+  # tags = var.tags
 }
